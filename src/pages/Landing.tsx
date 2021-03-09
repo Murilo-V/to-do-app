@@ -11,7 +11,11 @@ export default function Landing() {
     const navigation = useNavigation();
 
     function handleNavigateToRegister() {
-        navigation.navigate('Register')
+        navigation.navigate('Register');
+    }
+
+    function handleNavigateToLogin() {
+        navigation.navigate('Login');
     }
 
     return (
@@ -28,6 +32,10 @@ export default function Landing() {
 
                 <RectButton onPress={handleNavigateToRegister} style={styles.registerButton}>
                     <Text style={styles.textRegisterButton}>cadastre-se</Text>
+                </RectButton>
+
+                <RectButton onPress={handleNavigateToLogin} style={styles.loginButton}>
+                    <Text style={styles.textLoginButton}>fazer login</Text>
                 </RectButton>
 
                 <StatusBar style="light" />
@@ -60,7 +68,7 @@ const styles = StyleSheet.create({
             height: 2,
         },
         textShadowRadius: 5,
-        marginTop: 120
+        marginTop: 150
     },
     investment: {
         color: '#C319E6'
@@ -78,11 +86,28 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 120
+        marginTop: 150
       },
-      textRegisterButton: {
+    textRegisterButton: {
         color: '#FC0F90',
         fontFamily: 'Raleway_500Medium',
         fontSize: 17
+      },
+    loginButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 12,
+      },
+    textLoginButton: {
+        color: '#00009E',
+        fontFamily: 'Raleway_500Medium',
+        fontSize: 17,
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#00009E',
+        borderStyle: 'solid',
+        padding: 8,
+        textAlign: 'center',
+        width: 120,
       }
   });
