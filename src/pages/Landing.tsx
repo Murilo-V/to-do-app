@@ -1,21 +1,37 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image, ImageBackground } from "react-native";
 import landingLogo from '../images/landing-logo.png';
+import landingBackground from '../images/landing-background.png';
+import { RectButton } from 'react-native-gesture-handler';
 import React from 'react';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Landing() {
+
+    const navigation = useNavigation();
+
+    function handleNavigateToRegister() {
+        navigation.navigate('Register')
+    }
+
     return (
         <View style={styles.container}>
+            <ImageBackground source={landingBackground} style={styles.image}>
+                <Image source={landingLogo}/>
 
-            <Image source={landingLogo}/>
+                <Text style={styles.h1}>
+                    tempo é <Text style={styles.investment}>investimento</Text>
+                    .
+                </Text>
 
-            <Text style={styles.h1}>
-                tempo é <Text style={styles.investment}>investimento</Text>
-                .
-            </Text>
+                <Text style={styles.h2}>gerencie agora suas tarefas</Text>
 
-            <Text style={styles.h2}>gerencie agora suas tarefas</Text>
-            <StatusBar style="light" />
+                <RectButton onPress={handleNavigateToRegister} style={styles.registerButton}>
+                    <Text style={styles.textRegisterButton}>cadastre-se</Text>
+                </RectButton>
+
+                <StatusBar style="light" />
+            </ImageBackground>
         </View>
     )
 }
@@ -23,10 +39,15 @@ export default function Landing() {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#00009E',
       alignItems: 'center',
       justifyContent: 'center',
     },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center",
+        alignItems: 'center',
+      },
     h1: {
         fontSize: 50,
         color: '#FC0F90',
@@ -39,7 +60,7 @@ const styles = StyleSheet.create({
             height: 2,
         },
         textShadowRadius: 5,
-        marginTop: 40
+        marginTop: 120
     },
     investment: {
         color: '#C319E6'
@@ -47,7 +68,21 @@ const styles = StyleSheet.create({
     h2: {
         fontSize: 25,
         textDecorationLine: 'underline',
-        fontFamily: 'Raleway_500Medium',
+        fontFamily: 'Raleway_600SemiBold',
         color: '#FC0F90',
-    }
+    },
+    registerButton: {
+        width: 120,
+        backgroundColor: '#00009E',
+        padding: 10,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 120
+      },
+      textRegisterButton: {
+        color: '#FC0F90',
+        fontFamily: 'Raleway_500Medium',
+        fontSize: 17
+      }
   });
