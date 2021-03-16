@@ -10,10 +10,6 @@ export default function Landing() {
 
     const navigation = useNavigation();
 
-    function handleNavigateToRegister() {
-        navigation.navigate('Register');
-    }
-
     function handleNavigateToLogin() {
         navigation.navigate('Login');
     }
@@ -24,18 +20,13 @@ export default function Landing() {
                 <Image source={landingLogo}/>
 
                 <Text style={styles.h1}>
-                    tempo é <Text style={styles.investment}>investimento</Text>
-                    .
+                    tempo é investimento.
                 </Text>
 
                 <Text style={styles.h2}>gerencie agora suas tarefas</Text>
 
-                <RectButton onPress={handleNavigateToRegister} style={styles.registerButton}>
-                    <Text style={styles.textRegisterButton}>cadastre-se</Text>
-                </RectButton>
-
                 <RectButton onPress={handleNavigateToLogin} style={styles.loginButton}>
-                    <Text style={styles.textLoginButton}>fazer login</Text>
+                    <Text style={styles.textLoginButton}>iniciar</Text>
                 </RectButton>
 
                 <StatusBar style="light" />
@@ -58,7 +49,7 @@ const styles = StyleSheet.create({
       },
     h1: {
         fontSize: 50,
-        color: '#FC0F90',
+        color: '#EB1A8C',
         fontFamily: 'Raleway_700Bold',
         textAlign: 'center',
         lineHeight: 50,
@@ -70,44 +61,29 @@ const styles = StyleSheet.create({
         textShadowRadius: 5,
         marginTop: 150
     },
-    investment: {
-        color: '#C319E6'
-    },
     h2: {
         fontSize: 25,
-        textDecorationLine: 'underline',
         fontFamily: 'Raleway_600SemiBold',
-        color: '#FC0F90',
+        color: '#D8B6C9',
+        textShadowColor: 'rgba(0, 0, 0, 0.5)',
+        textShadowOffset: {
+            width: 1,
+            height: 2,
+        },
+        textShadowRadius: 5,
     },
-    registerButton: {
+    loginButton: {
         width: 120,
-        backgroundColor: '#00009E',
+        backgroundColor: '#191997',
         padding: 10,
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 150
+        marginTop: 150,
       },
-    textRegisterButton: {
-        color: '#FC0F90',
-        fontFamily: 'Raleway_500Medium',
+      textLoginButton: {
+        color: '#D8B6C9',
+        fontFamily: 'Raleway_700Bold',
         fontSize: 17
       },
-    loginButton: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 12,
-      },
-    textLoginButton: {
-        color: '#00009E',
-        fontFamily: 'Raleway_500Medium',
-        fontSize: 17,
-        borderRadius: 10,
-        borderWidth: 2,
-        borderColor: '#00009E',
-        borderStyle: 'solid',
-        padding: 8,
-        textAlign: 'center',
-        width: 120,
-      }
   });
